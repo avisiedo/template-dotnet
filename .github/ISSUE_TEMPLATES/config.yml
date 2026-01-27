@@ -1,0 +1,7 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser
+---
+blank_issues_enabled: false
+contact_links:
+  - name: Security Issues
+    url: mailto:learning.little.engineer.2025.1+sec@gmail.com
+    about: Please do not create an issue for security issue, see docs/SECURITY.md

@@ -1,0 +1,39 @@
+# Inspired by https://github.com/keycloak/keycloak/blob/main/.github/ISSUE_TEMPLATE/bug.yml
+---
+name: Bug Report
+description: Report a non-security sensitive bug
+labels:
+  - "kind/bug"
+  - "status/new"
+body:
+  - type: checkboxes
+    attributes:
+      label: Before reporting an issue
+      description: |
+        Please search to see if the issue is already reported, and try to reproduce the issue on the latest release.
+
+        **⚠️ Failing to follow these guidelines may result in your issue being closed without action. ⚠️**
+      options:
+        - label: I have read and understood the above terms for submitting issues, and I understand that my issue may be closed without action if I do not follow them.
+          required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Affected component
+      options:
+        # TODO Fill the components in your repository
+        - ""
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: |
+        ### Summary
+        ### Steps to replay
+        ### Current behavior
+        ### Expected behavior
+        ### Additional information
+      placeholder: Bug Description

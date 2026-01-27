@@ -1,0 +1,37 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema
+# https://learnxinyminutes.com/docs/yaml/
+---
+name: Feature request
+description: Suggest an idea for this project
+title: '[rfe]: '
+labels:
+  - "kind/feature"
+  - "state/new"
+assignees:
+  - avisiedo
+  - little-engineer-2025
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill a feature request!
+  - type: textarea
+    attributes:
+      label: Describe the feature
+      value: |
+        **Is your feature request related to a problem? Please describe.**
+        A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+
+        **Describe the solution you'd like**
+        A clear and concise description of what you want to happen.
+
+        **Describe alternatives you've considered**
+        A clear and concise description of any alternative solutions or features you've considered.
+
+        **Additional context**
+        Add any other context or screenshots about the feature request here.
+      placeholder: add information about the feature and rationale it
+    validations:
+      required: true
+

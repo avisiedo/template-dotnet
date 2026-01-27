@@ -1,0 +1,34 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema
+# https://learnxinyminutes.com/docs/yaml/
+---
+name: User Story
+description: Create a user story
+title: 'feat: '
+labels:
+  - "kind/feature"
+  - "state/new"
+assignees:
+  - avisiedo
+  - little-engineer-2025
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill a User Story!
+  - type: textarea
+    attributes:
+      label: Describe the feature
+      value: |
+        As a **Role** I want **some feature or value** that meet with:
+          - Acceptance criteria 1
+          - Acceptance criteria 2
+          - ...
+          - Acceptance criteria N
+        Additional information:
+          - links.
+          - other considerations.
+      placeholder: Add information about the user story
+    validations:
+      required: true
+

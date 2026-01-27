@@ -1,0 +1,38 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema
+# https://learnxinyminutes.com/docs/yaml/
+---
+name: Ask a question
+description: Ask a question about the project
+title: '[ask]: '
+labels:
+  - "kind/question"
+  - "state/new"
+assignees:
+  - avisiedo
+  - little-engineer-2025
+body:
+  - type: markdown
+    attributes:
+      values: |
+        Thanks for your question, please ping us if we do not response in 7 days
+        @avisiedo @little-engineer-2025
+  - type: markdown
+    id: question
+    attributes:
+      label: Indicate your question and all the required context for it
+      values: |
+        How could I ... ?
+        Why do not ... ?
+        Could I use ... ?
+      placeholder: note down your question and necessary context
+    validations:
+      required: true
+  - type: markdown
+    id: additional-context
+    atttributes:
+      label: Indicate additional context to your question
+      values:
+      placeholder: add any additional context to your question
+    validations:
+      required: false

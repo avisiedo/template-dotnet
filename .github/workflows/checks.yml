@@ -1,0 +1,97 @@
+name: Checks
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
+
+jobs:
+  check_conventional_commits_manual:
+    permissions:
+      contents: read
+      pull-requests: read
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: |
+          # TODO Add rule to get all the dependencies
+          # make deps
+
+      - name: Validate commit messages with a bash script
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # --- Configure the regular expression for conventional commit standard
+          REGEX_PATTERN='(^(feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert)[!]{0,1}: .+)|(^Initial commit$)'
+          
+          # --- Determine the commit range to verify
+          # Se usan variables de entorno de GitHub para determinar el punto de partida.
+          
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            # For PRs: Compare the commits between the base branch and HEAD
+            RANGE="${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}"
+            echo "Detected PR event. Commit range: $RANGE"
+          
+          elif [ "${{ github.event_name }}" == "push" ]; then
+            # For Push: Compare from the previous commit to the current one
+            RANGE="${{ github.event.before }}...${{ github.event.after }}"
+            echo "Detected PUSH event. Commit range: $RANGE"
+            
+          else
+            echo "Unsupported event for this script."
+            exit 1
+          fi
+
+          # --- Run the validation
+          # Get the commit hashes for the specified range
+          COMMITS=$(git log --pretty=format:%H $RANGE)
+
+          if [ -z "$COMMITS" ]; then
+            echo "No new commits found for validating the range $RANGE"
+            exit 0
+          fi
+
+          FAILURE_COUNT=0
+          
+          for COMMIT_SHA in $COMMITS; do
+            # Get the commit subject/title
+            SUBJECT=$(git log --pretty=format:%s -n 1 $COMMIT_SHA)
+            
+            # Use grep for validating if the subject match the regular expression
+            if ! grep -qE "$REGEX_PATTERN" <<< "$SUBJECT"; then
+              echo "❌ ERROR: Invalid commit: $COMMIT_SHA"
+              echo "   Subject: $SUBJECT"
+              FAILURE_COUNT=$((FAILURE_COUNT + 1))
+            else
+              echo "✅ Valid: $SUBJECT"
+            fi
+          done
+
+          if [ "$FAILURE_COUNT" -gt 0 ]; then
+            echo "----------------------------------------------------"
+            echo "$FAILURE_COUNT commits failed. Every commits should fit conventional commit format."
+            echo "Expected format: <type>[!]: <description>"
+            echo "\! is optional, and indicate a broken change in the commit"
+            # Force the step to fail
+            exit 1
+          fi
+
+          echo "All the commits in the range fit with conventional commit format!"
+        shell: bash
+
+      - name: Check formatting
+        run: |
+          # TODO Add rule to format your source code
+          # make format
+          git diff --exit-code || (echo "Formatting issues detected!" && exit 1)
+
+      - name: Run linter
+        run: |
+          # TODO Add rule to run any linter
+          # make lint
+

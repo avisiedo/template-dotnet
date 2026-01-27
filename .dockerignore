@@ -1,0 +1,53 @@
+# Ignore by default
+**/*
+
+# Add base directory files
+!README.md
+!LICENSE
+!Makefile
+!.gitignore
+!.dockerignore
+
+# Add .github directory
+!.github
+!.github/**
+!.github/**/*
+
+# Add script directory
+!scripts
+!scripts/**
+!scripts/**/*
+
+# Add documentation directory
+!docs
+!docs/**
+!docs/**/*
+
+# TODO Add your source directories
+#!my_module
+#!my_module/**
+#!my_module/**/*
+
+#!include
+#!include/**
+#!include/**/*
+
+#!cmake
+#!cmake/**
+#!cmake/**/*
+
+#!src
+#!src/**
+#!src/**/*
+
+#!pkgs
+#!pkgs/**
+#!pkgs/**/*
+
+#!internal
+#!internal/**
+#!internal/**/*
+
+# Override potential included and not wished files
+**/__pycache__
+
