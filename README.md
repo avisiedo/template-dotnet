@@ -3,8 +3,7 @@
 TODO This template implements a REST service using .NET Core
 and aims to incorporate industry best practices. The intention is to keep this repository updated, allowing new services to leverage the template.
 
-It will be generated for .net 10, but more version will be
-supported as new framework are released along the time.
+It will initially target .NET 10, with support for newer versions as they are released.
 
 ## Getting started
 
