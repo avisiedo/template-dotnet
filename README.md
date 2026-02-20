@@ -1,4 +1,22 @@
-# TODO Update README.md
+# TODO REST API with .net core
+
+TODO This template implement a REST service using .net
+and try to add the best practices in the industry at the
+moment of creating this template; the intention is to keep
+this repository update along the time, so new services can
+take advantage of the template.
+
+It will be generated for .net 10, but more version will be
+supported as new framework are released along the time.
+
+## Getting started
+
+We are developers, we like to get our hands dirty and try the
+code by ourselves, so let's have some fun.
+
+```sh
+git clone https://github.com/little-engineer-2025/template-dotnet
+```
 
 Common template
 
