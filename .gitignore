@@ -35,6 +35,8 @@
 # Override potential included and not wished files
 **/bin/**/*
 **/obj/**/*
+**/coverage.cobertura.xml
+/coveragereport
 
 **/__pycache__
 
