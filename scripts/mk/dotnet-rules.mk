@@ -7,7 +7,7 @@ build:  ## Build the application
 .PHONY: test
 test:  ## Run the tests
 	dotnet test
-	reportgenerator -reports:"**/TestResults/**/coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
+	reportgenerator -reports:"**/TestResults/**/coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Markdown
 
 # .PHONY: deps
 # deps:
