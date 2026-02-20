@@ -1,6 +1,6 @@
 # TODO REST API with .net core
 
-TODO This template implement a REST service using .net
+TODO This template implements a REST service using .NET Core
 and try to add the best practices in the industry at the
 moment of creating this template; the intention is to keep
 this repository update along the time, so new services can
