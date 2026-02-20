@@ -24,8 +24,7 @@ include scripts/mk/variables.mk
 # commands
 include scripts/mk/help.mk
 include scripts/mk/meta-general.mk
-# TODO Add here the specific drop-in with the main rules
-# include scripts/mk/language-rules.mk
+include scripts/mk/dotnet-rules.mk
 # TODO Comment if it is decided to do not use ADR
 include scripts/mk/adr.mk   # TODO Comment if it is decided to do not use ADR
 include scripts/mk/printvars.mk
