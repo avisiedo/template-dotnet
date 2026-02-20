@@ -10,44 +10,31 @@
 
 # Add .github directory
 !.github
-!.github/**
 !.github/**/*
 
 # Add script directory
 !scripts
-!scripts/**
 !scripts/**/*
 
 # Add documentation directory
 !docs
-!docs/**
 !docs/**/*
 
-# TODO Add your source directories
+# Add source files
+!**/*.slnx
+!appsettings.json
+!appsettings.Development.json
+!**/*.csproj
+!**/*.cs
+!*.Tests
+!*.Tests/**/*
+
 #!my_module
-#!my_module/**
 #!my_module/**/*
 
-#!include
-#!include/**
-#!include/**/*
-
-#!cmake
-#!cmake/**
-#!cmake/**/*
-
-#!src
-#!src/**
-#!src/**/*
-
-#!pkgs
-#!pkgs/**
-#!pkgs/**/*
-
-#!internal
-#!internal/**
-#!internal/**/*
-
 # Override potential included and not wished files
+**/bin/**/*
+**/obj/**/*
+
 **/__pycache__
 
